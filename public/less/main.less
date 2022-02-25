@@ -1,0 +1,51 @@
+@bg-color: #222;
+@contrast-color: #ddd;
+body {
+    background-color: @bg-color;
+    color: @contrast-color;
+    font-family: Arial;
+    font-size: 16pt;
+}
+
+.workout-container {
+    display: flex;
+    &>.workout-box {
+        padding: 1ch;
+        border: 0.2ch solid @contrast-color;
+        border-radius: 1ch;
+        text-transform: capitalize;
+        &.current-workout {
+            background-color: lighten(@bg-color, 20%);
+        }
+    }
+}
+
+button {
+    @button-color: @contrast-color;
+
+    padding: 1ch;
+    font-family: inherit;
+    font-size: inherit;
+    color: @bg-color;
+    background-color: @button-color;
+    border: 0.2ch solid black;
+    border-radius: 0.5ch;
+
+    &:not([disabled]){
+        cursor: pointer;
+        &:hover{
+            background-color: darken(@button-color, 10%);
+        }
+        &:active{
+            background-color: darken(@button-color, 20%);
+        }
+    }
+}
+
+.timer-text {
+    font-size: 24pt;
+    &.done {
+        color: #d55;
+    }
+}
+
